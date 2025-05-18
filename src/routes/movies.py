@@ -217,7 +217,7 @@ async def update_movie(
             detail="Invalid input data."
         )
 
-    if movie_data.revenue and movie_data.revenue < 0:
+    if movie_data.revenue is not None and movie_data.revenue < 0:
         raise HTTPException(
             status_code=400,
             detail="Invalid input data."
