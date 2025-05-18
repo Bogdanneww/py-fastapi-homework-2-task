@@ -205,13 +205,13 @@ async def update_movie(
             detail="Movie with the given ID was not found."
         )
 
-    if movie_data.score and (movie_data.score < 0 or movie_data.score > 100):
+    if movie_data.score is not None and (movie_data.score < 0 or movie_data.score > 100):
         raise HTTPException(
             status_code=400,
             detail="Invalid input data."
         )
 
-    if movie_data.budget and movie_data.budget < 0:
+    if movie_data.budget is not None and movie_data.budget < 0:
         raise HTTPException(
             status_code=400,
             detail="Invalid input data."
